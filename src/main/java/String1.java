@@ -309,7 +309,25 @@ public class String1
      * withoutX("Hxix") â†’ "Hxi"
      */
     public String withoutX(String str) {
-        return unimplemented;
+        int length = str.length();
+        String firstLetter = str.substring(0,1);
+        String lastLetter = str.substring(length - 1, length);
+        String strNoX = "";
+        if(firstLetter.equals("x")) {
+            if(lastLetter.equals("x")) {
+                strNoX = str.substring(1, length - 1);
+            }
+            else {
+            strNoX = str.substring(1, length);
+            }
+        } 
+        else if(lastLetter.equals("x")){
+            strNoX = str.substring(0, length - 1);
+        }
+        else {
+            strNoX = str;
+        }
+        return strNoX;
     }
 
     /*
@@ -321,8 +339,27 @@ public class String1
      * deFront("java") â†’ "va"
      * deFront("away") â†’ "aay"
      */
-    public String deFront(String str) {    
-        return unimplemented;
+    public String deFront(String str) {  
+        int length = str.length();
+        String firstLetter = str.substring(0,1);
+        String secondLetter = str.substring(1,2);
+        String restOfString = str.substring(2, length);
+        String strNoFront = "";
+        if(firstLetter.equals("a")){
+            if(secondLetter.equals("b")) {
+                strNoFront = str;
+            }
+            else {
+                strNoFront = firstLetter + restOfString;
+            }
+        }
+        else if(secondLetter.equals("b")){
+            strNoFront = secondLetter + restOfString;
+        }
+        else {
+            strNoFront = restOfString;
+        }
+        return strNoFront;
     }
 
 }
